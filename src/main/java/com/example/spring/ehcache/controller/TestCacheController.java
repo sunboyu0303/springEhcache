@@ -27,11 +27,11 @@ public class TestCacheController {
 
     @RequestMapping("/annotation/ehcache/get")
     public String annotationEhcacheGet() throws InterruptedException {
-        log.info("第一次调用：{}" + ehCacheTestService.getTimestamp("param"));
+        log.info("第一次调用：{}", ehCacheTestService.getTimestamp("param"));
         Thread.sleep(2000);
-        log.info("2秒之后调用：{}" + ehCacheTestService.getTimestamp("param"));
+        log.info("2秒之后调用：{}", ehCacheTestService.getTimestamp("param"));
         Thread.sleep(11000);
-        log.info("再过11秒之后调用：{}" + ehCacheTestService.getTimestamp("param"));
+        log.info("再过11秒之后调用：{}", ehCacheTestService.getTimestamp("param"));
         return "success";
     }
 
@@ -63,12 +63,5 @@ public class TestCacheController {
         cache.getKeys().forEach(key -> log.info("cache name: {}", cache.get(key)));
 
         return "ehcache api get";
-    }
-
-    @RequestMapping("/api/guava/get")
-    public String apiGuavaGet() {
-
-
-        return "guava api get";
     }
 }
