@@ -1,0 +1,30 @@
+<script src='http://libs.baidu.com/jquery/2.0.0/jquery.min.js'></script>
+<script type="text/javascript">
+    var method = {
+        getJson: function () {
+            $.ajax({
+                url: 'http://data.shop.jd.net/test/jsonp/show',
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        },
+        getJsonp: function () {
+            $.ajax({
+                url: 'http://data.shop.jd.net/test/jsonp/show',
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                jsonpCallback: 'getCallBack',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        },
+        getCallBack: function (data) {
+            console.log(data);
+        }
+    };
+    //    method.getJson();
+    method.getJsonp();
+</script>
